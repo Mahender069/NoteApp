@@ -1,5 +1,7 @@
+require("dotenv").config();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const registerController = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -50,24 +52,39 @@ const loginController = async (req, res) => {
       return;
     }
     const isSame = await bcrypt.compare(password, user.password);
-    if (isSame) {
-      res.status(200).json({
-        success: true,
-        message: "User is logged in successfully",
-      });
-      return;
-    } else {
+    if (!isSame) {
       res.status(404).json({
         success: false,
         message: "Incorrect password",
       });
       return;
     }
+
+    // create access token
+    const accessToken = jwt.sign(
+      {
+        id: user._id,
+        username,
+      },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "15m",
+      },
+    );
+
+    res.status(200).json({
+      success:true,
+      message:'user logged in successfully',
+      token:accessToken
+    })
+
+
   } catch (error) {
     res.status(400).json({
       success: false,
       message: "Something went wrong please try again",
     });
+    console.log(error);
   }
 };
 
