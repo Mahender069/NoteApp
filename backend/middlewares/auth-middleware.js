@@ -1,8 +1,7 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const loginMiddleware = async (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = req.cookies.token;
   if (!token) {
     res.status(404).json({
       success: false,
@@ -14,7 +13,6 @@ const loginMiddleware = async (req, res, next) => {
   try {
     const isMatch = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.userInfo=isMatch;
-    console.log(isMatch);
     next();
   } catch (error) {
     res.status(500).json({

@@ -53,7 +53,7 @@ const loginController = async (req, res) => {
     }
     const isSame = await bcrypt.compare(password, user.password);
     if (!isSame) {
-      res.status(404).json({
+      res.status(401).json({
         success: false,
         message: "Incorrect password",
       });
@@ -72,13 +72,16 @@ const loginController = async (req, res) => {
       },
     );
 
+    res.cookie("token", accessToken, {
+      httpOnly: true,
+      secure: false, // true in production (HTTPS)
+      sameSite: "lax",
+    });
+
     res.status(200).json({
-      success:true,
-      message:'user logged in successfully',
-      token:accessToken
-    })
-
-
+      success: true,
+      message: "user logged in successfully",
+    });
   } catch (error) {
     res.status(400).json({
       success: false,

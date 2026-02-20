@@ -9,9 +9,9 @@ const {loginMiddleware}=require('../middlewares/auth-middleware')
 
 const router = express.Router();
 
-router.get("/note/get",loginMiddleware, getAllNotes);
+router.get("/dashboard",loginMiddleware, getAllNotes);
 router.post("/note/create",loginMiddleware, createNote);
-router.delete("/note/delete",loginMiddleware, deleteNote);
-router.put("/note/update",loginMiddleware, updateNote);
+router.delete("/notes/delete",loginMiddleware, deleteNote);
+router.put("/notes/update",loginMiddleware, updateNote);
 
 module.exports = router;

@@ -1,42 +1,185 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --background-color: rgb(255, 236, 192);
+  --header-color: rgb(255, 194, 155);
+  --note-color: rgb(243, 159, 159);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.header {
+  width: 100vw;
+  height: 10vh;
+  font-size: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  vertical-align: middle;
+  color: white;
+}
+
+.header>* {
+  padding: 0.2rem;
+}
+
+.header>img {
+  height: 4rem;
+}
+
+.login-form,
+.register-form {
+  width: 50vw;
+  height: 85vh;
+  font-size: 3rem;
+  color: white;
+  backdrop-filter: blur(20px);
+  position: relative;
+  left: 25%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  border-radius: 4rem;
+
+}
+
+.login-part,
+.register-part {
+  width: 35rem;
+  height: 3.5rem;
+  display: block;
+  border-radius: 0.5rem;
+  border: solid;
+  border-width: 1.5px;
+}
+
+.login-button,
+.register-button {
+  width: 10rem;
+  height: 4rem;
+  font-size: large;
+  border-radius: 2rem;
+  border: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.note-container {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  gap: 8rem;
+  flex-wrap: wrap;
+
+  padding: 5rem;
+  justify-content: center;
+}
+
+.Note {
+  width: 25vw;
+  height: 40vh;
+  color: white;
+  border-radius: 2rem;
+  backdrop-filter: blur(40px);
+  line-height: 1.9rem;
   padding: 2rem;
-  text-align: center;
+
+
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.note-part {
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Tag {
+  width: 3rem;
+  height: 2.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.create-note {
+  width: 50vw;
+  height: 80vh;
+  color: white;
+  border-radius: 3rem;
+  backdrop-filter: blur(40px);
+  line-height: 1.9rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+.create-note-part {
+  font-weight: bolder;
+  font-size: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.create-note-wrapper {
+  line-height: 3rem;
+}
+
+.create-note-input {
+  width: 45vh;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border-style: none;
+}
+
+.create-note-button {
+  display: block;
+  width: 35vh;
+  height: 3rem;
+  border-radius: 1rem;
+  border-style: none;
+  background-color: purple;
+  align-self: center;
+  margin: 2.5rem;
+  cursor: pointer;
+}
+
+.create-button{
+  width: 6rem;
+  height: 5rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  position: relative;
+  border:solid 1px white;
+  left: 90%;
+  background-color: transparent;
+  color: white;
+}
+
+.error-message-register,.login-error-message{
+  font-size: 2.2rem;
+  display: block;
+  color: white;
+  width: 32vw;
+  margin: 1rem;
+  border-radius: 1rem;
 }
