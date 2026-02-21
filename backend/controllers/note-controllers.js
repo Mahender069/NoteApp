@@ -23,7 +23,7 @@ const getAllNotes = async (req, res) => {
 };
 const createNote = async (req, res) => {
   try {
-    const { title, content, category, tags } = req.body;
+    const { title, content, category } = req.body;
 
     const { id } = req.userInfo;
     const newNote = await Note.create({
@@ -31,7 +31,6 @@ const createNote = async (req, res) => {
       title,
       content,
       category,
-      tags,
     });
 
     if (!newNote) {
@@ -55,13 +54,14 @@ const createNote = async (req, res) => {
 };
 const deleteNote = async (req, res) => {
   try {
-    const {id}=req.body;
-    const deletedMessage=await Note.findByIdAndDelete(id,{new:true});
+    const { id } = req.body;
+    
+    const deletedMessage = await Note.findByIdAndDelete(id, { new: true });
     res.status(200).json({
-      success:true,
-      message:'Deleted successfully',
-      data:deletedMessage
-    })
+      success: true,
+      message: "Deleted successfully",
+      data: deletedMessage,
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -70,6 +70,5 @@ const deleteNote = async (req, res) => {
     console.log(error);
   }
 };
-const updateNote = async (req, res) => {};
 
-module.exports = { getAllNotes, createNote, deleteNote, updateNote };
+module.exports = { getAllNotes, createNote, deleteNote };

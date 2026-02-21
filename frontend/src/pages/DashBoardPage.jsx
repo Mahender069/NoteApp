@@ -7,7 +7,7 @@ import CreateNote from "../components/CreateNote";
 import { useEffect } from "react";
 
 export default function DashBoardPage() {
-  const [data, setData] = useState(sampleData);
+  const [data, setData] = useState([]);
   const [isPopOpen, setisPopOpen] = useState(false);
   // useEffect hook
   useEffect(() => {
@@ -18,31 +18,33 @@ export default function DashBoardPage() {
       });
       const json = await response.json();
       const array = json.data;
-      setData([...data, json.data]);
+      setData([...data, ...array]);
     })();
   }, []);
 
-
-  async function createNote(){
-    
-  }
   return (
     <>
-      <FloatingLines lineCount={10} />
+      <FloatingLines
+        lineCount={5}
+        animationSpeed={4}
+        linesGradient={["576A8F", "B7BDF7", "FFF8DE", "FF7444"]}
+      />
       <Header />
-      <button onClick={() => setisPopOpen(true)} className="create-button">
-        Create
+      <button class="create-button" role="button" onClick={()=>setisPopOpen(true)}>
+        <span class="text">Create Note</span>
       </button>
-      {isPopOpen && <CreateNote handleCreate={() => setisPopOpen(false)} />}
+      {isPopOpen && <CreateNote clickHandler={setisPopOpen} dataHandler={setData} />}
       <div className="note-container">
-        {data.map(({ title, content, category, tags }) => {
+        {data.map(({ _id,title, content, category }) => {
           return (
             <Note
               key={crypto.randomUUID()}
+              id={_id}
               title={title}
               content={content}
               category={category}
-              tags={tags}
+              data={data}
+              dataHandler={setData}
             />
           );
         })}

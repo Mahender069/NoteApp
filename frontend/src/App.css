@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap');
 :root {
   --background-color: rgb(255, 236, 192);
   --header-color: rgb(255, 194, 155);
@@ -62,6 +61,8 @@ body {
 
 }
 
+
+
 .login-part,
 .register-part {
   width: 35rem;
@@ -100,17 +101,18 @@ body {
   color: white;
   border-radius: 2rem;
   backdrop-filter: blur(40px);
-  line-height: 1.9rem;
-  padding: 2rem;
+  line-height: 2rem;
 
 
   text-decoration: none;
-  cursor: pointer;
+  padding: 3rem;
 }
 
 .note-part {
   font-weight: bolder;
   font-size: 1.5rem;
+  font-family: "Press Start 2P",cursive;
+  line-height: 2rem;
 }
 
 .Tag {
@@ -163,18 +165,6 @@ body {
   cursor: pointer;
 }
 
-.create-button{
-  width: 6rem;
-  height: 5rem;
-  cursor: pointer;
-  border-radius: 2rem;
-  position: relative;
-  border:solid 1px white;
-  left: 90%;
-  background-color: transparent;
-  color: white;
-}
-
 .error-message-register,.login-error-message{
   font-size: 2.2rem;
   display: block;
@@ -182,4 +172,51 @@ body {
   width: 32vw;
   margin: 1rem;
   border-radius: 1rem;
+}
+.close-button{
+  font-size: 100px;
+  position: fixed;
+  left: 90%;
+  top: 10%;
+  cursor: pointer;
+}
+
+
+
+
+/* CSS */
+.create-button {
+  padding: 12px 26px;
+  padding-bottom: 18px;
+  border: 0;
+  font-size: 16px;
+  transition: all 150ms ease-in-out;
+
+  border-radius: 15px;
+
+  color: white;
+  font-weight: bold;
+  background: transparent;
+  box-shadow: 0 0 9px gray;
+  position: relative;
+  left: 90%;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  filter: brightness(0.98);
+}
+
+.create-button:active {
+  filter: brightness(0.97);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 6px 0, inset 0px -1px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+.delete-button{
+  position: fixed;
+  left: 90%;
+  cursor: pointer;
 }

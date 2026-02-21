@@ -43,7 +43,7 @@ export default function LoginPage() {
   }
   return (
     <>
-      <FloatingLines lineCount={10} />
+      <FloatingLines lineCount={4} lineDistance={10} animationSpeed={3} linesGradient={['DAB88B','F3E9DD','FDF6EC','B7CADB']}/>
       <Header />
       <div className="login-form">
         <div className="login-wrapper">
