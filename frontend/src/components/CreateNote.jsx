@@ -17,8 +17,11 @@ export default function CreateNote({ clickHandler, dataHandler }) {
         }),
         "credentials":"include"
       });
+      const json=await response.json();
+      const newNote=json.noteData;
+      console.log(newNote);
       if (response.status === 201) {
-        dataHandler((prev) => [...prev, { title, content, category }]);
+        dataHandler((prev) => [...prev, newNote]);
         clickHandler(clickHandler(false));
       }
     } catch (error) {

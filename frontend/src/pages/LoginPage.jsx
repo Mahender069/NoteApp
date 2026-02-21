@@ -43,7 +43,12 @@ export default function LoginPage() {
   }
   return (
     <>
-      <FloatingLines lineCount={4} lineDistance={10} animationSpeed={3} linesGradient={['DAB88B','F3E9DD','FDF6EC','B7CADB']}/>
+      <FloatingLines
+        lineCount={4}
+        animationSpeed={5}
+        enabledWaves={["middle", "top"]}
+        linesGradient={["574964", "9F8383", "D7BBF5", "FFDAB3"]}
+      />
       <Header />
       <div className="login-form">
         <div className="login-wrapper">
@@ -69,9 +74,11 @@ export default function LoginPage() {
           >
             Login
           </button>
-          {error.error ? <div className="login-error-message">
-            {error.message}
-          </div> : ""}
+          {error.error ? (
+            <div className="login-error-message">{error.message}</div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>

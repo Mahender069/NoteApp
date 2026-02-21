@@ -40,7 +40,12 @@ export default function RegisterPage() {
   }
   return (
     <>
-      <FloatingLines lineCount={10} />
+      <FloatingLines
+        lineCount={4}
+        animationSpeed={5}
+        enabledWaves={["middle", "top"]}
+        linesGradient={["574964", "9F8383", "D7BBF5", "FFDAB3"]}
+      />
       <Header />
       <div className="register-form">
         <div className="register-wrapper">
@@ -68,11 +73,11 @@ export default function RegisterPage() {
           <button className="register-button" onClick={handleRegister}>
             Register
           </button>
-          {
-            error.error ? <div className="error-message-register">
-              {error.message}
-            </div>: ""
-          }
+          {error.error ? (
+            <div className="error-message-register">{error.message}</div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
