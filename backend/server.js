@@ -28,6 +28,8 @@ app.use("/", noteRoutes);
 
 
 const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`Server is running at port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running at port ${PORT}`);
+// });
+
+module.exports=app
