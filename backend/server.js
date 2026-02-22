@@ -10,7 +10,7 @@ const app = express();
 
 //enable cors
 app.use(cors({
-  origin: "https://note-app-frontend-dusky.vercel.app",
+  origin: "https://note-app-frontend-isur2vgan-tnmahender-8366s-projects.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
