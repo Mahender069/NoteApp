@@ -31,5 +31,8 @@ const PORT = process.env.PORT;
 // app.listen(PORT, () => {
 //   console.log(`Server is running at port ${PORT}`);
 // });
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is running ✅");
+});
 
 module.exports=app
