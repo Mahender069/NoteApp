@@ -5,7 +5,7 @@ export default function CreateNote({ clickHandler, dataHandler }) {
     const category = document.querySelector("#category").value;
     const content = document.querySelector("#content").value;
     try {
-      const response = await fetch("http://localhost:3000/note/create", {
+      const response = await fetch("https://note-app-two-delta.vercel.app/note/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

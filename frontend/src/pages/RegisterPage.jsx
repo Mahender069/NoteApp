@@ -12,7 +12,7 @@ export default function RegisterPage() {
     const password = document.querySelector("#password").value;
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch("https://note-app-two-delta.vercel.app/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

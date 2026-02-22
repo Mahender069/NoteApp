@@ -2,7 +2,7 @@ import { Trash2 } from "lucide-react";
 export default function Note(props) {
   const { id, title, content, category, data, dataHandler } = props;
   async function deleteNote() {
-    const response = await fetch("http://localhost:3000/note/delete", {
+    const response = await fetch("https://note-app-two-delta.vercel.app/note/delete", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

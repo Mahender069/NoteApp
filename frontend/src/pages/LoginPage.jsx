@@ -10,7 +10,7 @@ export default function LoginPage() {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("https://note-app-two-delta.vercel.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

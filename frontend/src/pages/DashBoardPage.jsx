@@ -11,7 +11,7 @@ export default function DashBoardPage() {
   // useEffect hook
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://localhost:3000/dashboard", {
+      const response = await fetch("https://note-app-two-delta.vercel.app/dashboard", {
         method: "GET",
         credentials: "include",
       });
