@@ -31,7 +31,7 @@ app.use("/", noteRoutes);
 const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.status(200).send("Backend is running ✅");
+  res.status(200).send("Backend is running");
 });
 
 module.exports = app;
